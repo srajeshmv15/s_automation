@@ -1,0 +1,29 @@
+{
+  "name": "swiggy_ui_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "pretest": "npm run tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srajeshmv15/s_automation.git"
+  },
+  "author": "Rajesh",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^3.3.8",
+    "protractor": "^5.4.2"
+  },
+  "dependencies": {
+    "@types/node": "^10.12.20",
+    "chromedriver": "^2.46.0",
+    "properties-reader": "0.0.16"
+  },
+  "bugs": {
+    "url": "https://github.com/srajeshmv15/s_automation/issues"
+  },
+  "homepage": "https://github.com/srajeshmv15/s_automation#readme"
+}
