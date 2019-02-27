@@ -36,19 +36,18 @@ describe('swiggy ui automation', function() {
      
       browser.wait(ExpectedConditions.visibilityOf(
         element(by.xpath(searchPageProperties.get('searchResultText')))), waitTimer, 'error message');
-     
-      element.all(by.css(searchPageProperties.get('searchItemsRows')))
-        .getWebElements().then((searchItemsRows) => {
+      
+      
+      element(by.xpath(searchPageProperties.get('searchItemsRows'))).getText()
+        .then((searchItemsRows) => {
                 let found = false;
-                 a1: for (let i=0; i<searchItemsRows.length; i++) {
-                     searchItemsRows[i].getText().then(res => {
-                       console.log(res);
-                       if (res.includes(pizzaHut)) {
+               
+                       if (searchItemsRows.includes(pizzaHut)) {
                          browser.sleep(5000);
-                         searchItemsRows[i].click();
+                         element(by.xpath(searchPageProperties.get('searchItemsRows'))).click();
                          found = true;
                          browser.sleep(5000);
-                        if (element(by.xpath("//div[@class='_3pEBA']")).isPresent().then(result => {
+                        if (element(by.xpath("//div[contains(text(),'Pizza Hut')]")).isPresent().then(result => {
                              if (result) {
                               browser.wait(ExpectedConditions.presenceOf(
                                 element.all(by.css(searchPageProperties.get('third'))).get(0), 15000));        
@@ -77,7 +76,6 @@ describe('swiggy ui automation', function() {
                           browser.wait(ExpectedConditions.presenceOf(
                             element(by.css(pizzaPageProperties.get('popUp')))), waitTimer);
                             
-                            if (res.includes(pizzaHut)) {
                               browser.wait(ExpectedConditions.elementToBeClickable(
                                 element.all(by.xpath(pizzaPageProperties.get('toppings'))).get(0)), waitTimer); 
                               element(by.xpath(pizzaPageProperties.get('toppings'))).click();  
@@ -138,14 +136,15 @@ describe('swiggy ui automation', function() {
                                             console.log('Total Price Matched ', totalPrice);
                                           }
                                       });
-                            }
                        }
-                     });
+
 
                      if (found === true) {
-                      break a1;
+                      console.log(`It's found`);
                        }
-                    }                     
+                       else {
+                         console.log(`It's not found`);
+                       }
       });
   
       

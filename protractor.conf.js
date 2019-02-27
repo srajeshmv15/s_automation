@@ -23,6 +23,8 @@ exports.config = {
 		showColors : true, // Use colors in the command line report.
 	},
 
+	allScriptsTimeout: 11000,
+
 	onPrepare : function() {
 		browser.driver.manage().window().maximize();
 		// originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
